@@ -45,7 +45,6 @@ The project structure is organized as follows:
 - **/controllers**: Handles the application logic.
 
 - **/middleware**: Custom middleware functions
-  - **Auth**: Authentication middleware.
 
 - **/models**: Defines MongoDB data models.
 
