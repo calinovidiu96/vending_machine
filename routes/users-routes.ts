@@ -2,7 +2,14 @@ import { Router } from "express";
 import { check } from "express-validator";
 
 import { checkAuth } from "../middleware/check-auth";
-import { signup, login, deposit, reset } from "../controllers/users-controller";
+import {
+	signup,
+	login,
+	deposit,
+	reset,
+	logout,
+	logoutSessions,
+} from "../controllers/users-controller";
 
 const router = Router();
 
@@ -35,5 +42,11 @@ router.post("/deposit", [check("amount").isIn([5, 10, 20, 50, 100])], deposit);
 
 // Reset deposit
 router.get("/reset", reset);
+
+// Close current user sessions
+router.get("/logout", logout);
+
+// Close all user sessions
+router.get("/logout/all", logoutSessions);
 
 export default router;

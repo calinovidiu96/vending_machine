@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 declare module "express-serve-static-core" {
 	interface Request {
-		userData?: { userId: string };
+		userData?: { userId: string; sessionId: string };
 	}
 }
 
@@ -29,7 +29,10 @@ export const checkAuth = (req: Request, res: Response, next: NextFunction) => {
 			throw new Error("Invalid token.");
 		}
 
-		req.userData = { userId: decodedToken.userId };
+		req.userData = {
+			userId: decodedToken.userId,
+			sessionId: decodedToken.sessionId,
+		};
 
 		next();
 	} catch (err) {

@@ -4,6 +4,20 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 import { User } from "../models/user";
+import { Session } from "../models/session";
+
+const generateSessionId = () => {
+	return Math.random().toString(36).substring(2, 15);
+};
+
+const updateSessionInfo = async (userId: string, sessionId: string) => {
+	const session = new Session({
+		userId,
+		sessionId,
+	});
+
+	await session.save();
+};
 
 export const signup: RequestHandler = async (req, res, next) => {
 	try {
@@ -34,11 +48,15 @@ export const signup: RequestHandler = async (req, res, next) => {
 
 		await createdUser.save();
 
+		const sessionId = generateSessionId();
+		updateSessionInfo(createdUser._id.toString(), sessionId);
+
 		const token = jwt.sign(
 			{
 				userId: createdUser._id,
 				name: createdUser.username,
 				role: createdUser.role,
+				sessionId,
 			},
 			process.env.JWT_KEY as string
 		);
@@ -78,11 +96,15 @@ export const login: RequestHandler = async (req, res, next) => {
 			return res.status(404).json({ message: "Invalid credentials." });
 		}
 
+		const sessionId = generateSessionId();
+		updateSessionInfo(existingUser._id.toString(), sessionId);
+
 		const token = jwt.sign(
 			{
 				userId: existingUser._id,
 				name: existingUser.username,
 				role: existingUser.role,
+				sessionId,
 			},
 			process.env.JWT_KEY as string
 		);
@@ -159,5 +181,33 @@ export const reset: RequestHandler = async (req, res, next) => {
 		});
 	} catch (err: any) {
 		next(new Error(`Deposit credits failed.  ${err.message}`));
+	}
+};
+
+export const logout: RequestHandler = async (req, res, next) => {
+	const sessionId = req.userData?.sessionId;
+
+	try {
+		await Session.findOneAndDelete({ sessionId });
+
+		res.status(200).json({
+			message: "Closed current sessions successfully.",
+		});
+	} catch (err: any) {
+		next(new Error(`Closing current sessions failed. ${err.message}`));
+	}
+};
+
+export const logoutSessions: RequestHandler = async (req, res, next) => {
+	const userId = req.userData?.userId;
+
+	try {
+		await Session.deleteMany({ userId });
+
+		res.status(200).json({
+			message: "Closed all sessions successfully.",
+		});
+	} catch (err: any) {
+		next(new Error(`Closing all sessions failed. ${err.message}`));
 	}
 };
