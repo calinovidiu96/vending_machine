@@ -16,12 +16,12 @@ This backend application is a simple platform powered by Node.js and Express, of
 
 ## 🔗 1. Clone the Repository
 
-- git clone < repository-url >
-- cd < project-folder >
+- Run `git clone < repository-url >`
+- Run `cd < project-folder >`
 
 ## 💻 2. Install Dependencies
 
-npm install
+Run `npm install`
 
 ## 🔑 3. Set Up Environment Variables
 Duplicate the .env.example file and rename it to .env. Update the values for MongoDB connection.
@@ -33,7 +33,7 @@ Duplicate the .env.example file and rename it to .env. Update the values for Mon
 
 ## 🚀 4. Run the Application
 
- - npm start
+ -  Run `npm start`
    
 The server will run on http://localhost:5001
 
@@ -92,4 +92,5 @@ The project structure is organized as follows:
 ## 🧪 Testing
 To run tests:
 
-npm test
+- in .env file set NODE_ENV=test
+- Run `npm test`
