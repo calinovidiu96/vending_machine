@@ -1,6 +1,12 @@
-# Node/Express-MongoDB REST API
 
-This project is a Node.js/Express backend application that uses MongoDB as its database for a REST API.
+## Vending Machine
+This backend APP is a simple platform powered by Node.js and Express, offering a straightforward experience for buyers and sellers. With practical API endpoints, it manages user authentication, product actions, and transactions. Utilizing MongoDB for data storage and JWT tokens for security, it's as straightforward as operating a vending machine.
+
+## Key Features:
+ - User Management: Create accounts, log in securely, and manage deposits.
+ - Product Operations: Add, update, and delete products with role-based access control.
+ - Transaction Processing: Buy products, ensuring stock availability and managing user credits.
+ - Flexible and Secure: JWT-based authentication, and error handling for a reliable experience.
 
 Make sure you have the following installed before running the app:
 - Node.js (https://nodejs.org/en) - Version 20 is recommended.
@@ -10,8 +16,8 @@ Make sure you have the following installed before running the app:
 
 ## 🔗 1. Clone the Repository
 
-git clone <repository-url>
-cd <project-folder>
+git clone < repository-url >
+cd < project-folder >
 
 ## 💻 2. Install Dependencies
 
@@ -20,14 +26,14 @@ npm install
 ## 🔑 3. Set Up Environment Variables
 Duplicate the .env.example file and rename it to .env. Update the values for MongoDB connection.
 
-DEVELOP_DATABASE=mongodb+srv://<username>:<password>@beyondthebasics.abcde.mongodb.net/test
-JWT_KEY=your_top_secret_token
+ - DEVELOP_DATABASE=mongodb+srv://<username>:<password>@beyondthebasics.abcde.mongodb.net/test
+ - JWT_KEY=your_top_secret_token
 
 
 ## 🚀 4. Run the Application
 
 npm start
-The server will run on http://localhost:5001/
+The server will run on http://localhost:5001
 
 ## 🗂 Project Structure
 
