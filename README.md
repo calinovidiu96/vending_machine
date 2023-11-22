@@ -73,15 +73,15 @@ The project structure is organized as follows:
 
 - **GET /products**: Get all products from the database (No authentication required)
 
-- **POST /add**: Add a new product (Requires "seller" role and a 'Bearer token' in headers)
+- **POST /products/add**: Add a new product (Requires "seller" role and a 'Bearer token' in headers)
   - Request Body: `{ "cost": number, "amountAvailable": number, "productName": string }`
 
-- **PATCH /update/:productId**: Update a product (Requires product owner and a 'Bearer token' in headers)
+- **PATCH /products/update/:productId**: Update a product (Requires product owner and a 'Bearer token' in headers)
   - Request Body (any of): `{ "cost": number, "amountAvailable": number, "productName": string }`
 
-- **DELETE /delete/:productId**: Delete a product (Requires product owner and a 'Bearer token' in headers)
+- **DELETE /products/delete/:productId**: Delete a product (Requires product owner and a 'Bearer token' in headers)
 
-- **POST /buy**: Buy a product (Requires "buyer" role and a 'Bearer token' in headers)
+- **POST /products/buy**: Buy a product (Requires "buyer" role and a 'Bearer token' in headers)
   - Request Body: `{ "productId": string, "amount": number }`
 
 
