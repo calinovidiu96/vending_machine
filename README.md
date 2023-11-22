@@ -32,7 +32,7 @@ Duplicate the .env.example file and rename it to .env. Update the values for Mon
 
 ## 🚀 4. Run the Application
 
-npm start
+- npm start
 The server will run on http://localhost:5001
 
 ## 🗂 Project Structure
