@@ -16,8 +16,8 @@ Make sure you have the following installed before running the app:
 
 ## 🔗 1. Clone the Repository
 
-git clone < repository-url >
-cd < project-folder >
+- git clone < repository-url >
+- cd < project-folder >
 
 ## 💻 2. Install Dependencies
 
