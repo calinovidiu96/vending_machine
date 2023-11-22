@@ -28,6 +28,7 @@ Duplicate the .env.example file and rename it to .env. Update the values for Mon
 
  - DEVELOP_DATABASE=mongodb+srv://<username>:<password>@beyondthebasics.abcde.mongodb.net/test
  - JWT_KEY=your_top_secret_token
+ - NODE_ENV=your_preferred_env
 
 
 ## 🚀 4. Run the Application
