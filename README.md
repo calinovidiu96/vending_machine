@@ -8,39 +8,45 @@ Make sure you have the following installed before running the app:
 
 ## Getting Started
 
-🔗 1. Clone the Repository
+## 🔗 1. Clone the Repository
 
 git clone <repository-url>
 cd <project-folder>
 
-💻 2. Install Dependencies
+## 💻 2. Install Dependencies
 
 npm install
 
-🔑 3. Set Up Environment Variables
+## 🔑 3. Set Up Environment Variables
 Duplicate the .env.example file and rename it to .env. Update the values for MongoDB connection.
 
 DEVELOP_DATABASE=mongodb+srv://<username>:<password>@beyondthebasics.abcde.mongodb.net/test
 JWT_KEY=your_top_secret_token
 
 
- 🚀 4. Run the Application
+## 🚀 4. Run the Application
 
 npm start
 The server will run on http://localhost:5001/
 
-🗂 Project Structure
+## 🗂 Project Structure
+
 The project structure is organized as follows:
 
-server.ts: Entry point of the application.
-/controllers: Handles the application logic.
-/middleware: Custom middleware functions - Auth. 
-/models: Defines MongoDB data models.
-/routes: Defines API routes.
-/utils: Utility functions.
-/tests: Contains test files.
+- **server.ts**: Entry point of the application.
 
-🚦API Endpoints:
+- **/controllers**: Handles the application logic.
+
+- **/middleware**: Custom middleware functions
+  - **Auth**: Authentication middleware.
+
+- **/models**: Defines MongoDB data models.
+
+- **/routes**: Defines API routes.
+
+- **/utils**: Utility functions.
+
+- **/tests**: Contains test files.
 
 ## 🚦 API Endpoints:
 
@@ -73,7 +79,7 @@ server.ts: Entry point of the application.
   - Request Body: `{ "productId": string, "amount": number }`
 
 
-🧪 Testing
+## 🧪 Testing
 To run tests:
 
 npm test
