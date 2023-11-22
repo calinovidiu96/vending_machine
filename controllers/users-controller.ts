@@ -48,8 +48,14 @@ export const signup: RequestHandler = async (req, res, next) => {
 
 		await createdUser.save();
 
-		const sessionId = generateSessionId();
-		updateSessionInfo(createdUser._id.toString(), sessionId);
+		let sessionId;
+
+		if (process.env.NODE_ENV !== "test") {
+			sessionId = generateSessionId();
+			updateSessionInfo(createdUser._id.toString(), sessionId);
+		} else {
+			sessionId = null;
+		}
 
 		const token = jwt.sign(
 			{
@@ -96,8 +102,14 @@ export const login: RequestHandler = async (req, res, next) => {
 			return res.status(404).json({ message: "Invalid credentials." });
 		}
 
-		const sessionId = generateSessionId();
-		updateSessionInfo(existingUser._id.toString(), sessionId);
+		let sessionId;
+
+		if (process.env.NODE_ENV !== "test") {
+			sessionId = generateSessionId();
+			updateSessionInfo(existingUser._id.toString(), sessionId);
+		} else {
+			sessionId = null;
+		}
 
 		const token = jwt.sign(
 			{

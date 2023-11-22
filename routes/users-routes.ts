@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { check } from "express-validator";
 
-import { checkAuth } from "../middleware/check-auth";
+import { checkAuth, checkSession } from "../middleware/check-auth";
 import {
 	signup,
 	login,
@@ -36,6 +36,7 @@ router.post(
 
 // Check if authenticated
 router.use(checkAuth);
+router.use(checkSession);
 
 // Deposit credits
 router.post("/deposit", [check("amount").isIn([5, 10, 20, 50, 100])], deposit);

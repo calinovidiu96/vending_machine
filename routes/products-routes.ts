@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { check } from "express-validator";
 
-import { checkAuth } from "../middleware/check-auth";
+import { checkAuth, checkSession } from "../middleware/check-auth";
 import {
 	getProducts,
 	addProduct,
@@ -17,6 +17,7 @@ router.get("/", getProducts);
 
 // Check if authenticated
 router.use(checkAuth);
+router.use(checkSession);
 
 // Add Product
 router.post(
