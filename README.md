@@ -1,6 +1,6 @@
 
 ## Vending Machine
-This backend APP is a simple platform powered by Node.js and Express, offering a straightforward experience for buyers and sellers. With practical API endpoints, it manages user authentication, product actions, and transactions. Utilizing MongoDB for data storage and JWT tokens for security, it's as straightforward as operating a vending machine.
+This backend application is a simple platform powered by Node.js and Express, offering a straightforward experience for buyers and sellers. With practical API endpoints, it manages user authentication, product actions, and transactions. Utilizing MongoDB for data storage and JWT tokens for security, it's as straightforward as operating a vending machine.
 
 ## Key Features:
  - User Management: Create accounts, log in securely, and manage deposits.
@@ -50,24 +50,27 @@ The project structure is organized as follows:
 
 - **/routes**: Defines API routes.
 
-- **/utils**: Utility functions.
-
 - **/tests**: Contains test files.
 
 ## 🚦 API Endpoints:
 
 ### User Operations:
 
-- **POST /user/signup**: Create a new user
+- **POST /user/signup**: Create a new user.
   - Request Body: `{ "username": string, "password": string, "role": "buyer" || "seller" }`
 
-- **POST /user/login**: Login to the app
+- **POST /user/login**: Login to the app.
   - Request Body: `{ "username": string, "password": string }`
 
-- **POST /user/deposit**: Deposit money to account (Requires "buyer" role and a 'Bearer token' in headers)
+- **POST /user/deposit**: Deposit money to account. (Requires "buyer" role and a 'Bearer token' in headers)
   - Request Body: `{ "amount": number }`
 
-- **GET /user/reset**: Reset your deposit amount (Requires "buyer" role and a 'Bearer token' in headers)
+- **GET /user/reset**: Reset your deposit amount. (Requires "buyer" role and a 'Bearer token' in headers)
+
+- **GET /user/logout**: Logs you out from the current session. (Requires a 'Bearer token' in headers)
+
+- **GET /user/logout/all**: Logs you out from all sessions. (Requires a 'Bearer token' in headers)
+
 
 ### Product Operations:
 
