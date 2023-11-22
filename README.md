@@ -8,7 +8,7 @@ This backend APP is a simple platform powered by Node.js and Express, offering a
  - Transaction Processing: Buy products, ensuring stock availability and managing user credits.
  - Flexible and Secure: JWT-based authentication, and error handling for a reliable experience.
 
-Make sure you have the following installed before running the app:
+## Make sure you have the following installed before running the app:
 - Node.js (https://nodejs.org/en) - Version 20 is recommended.
 - MongoDB (https://www.mongodb.com/try/download) - Make sure MongoDB server is running.
 
